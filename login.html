@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <h2>Log in</h2>
+   <form id="login-form">
+      <input type="text" name="username" placeholder="Nhập user">
+      <input type="text" name="password" placeholder="Nhập pass">
+      <button type="submit">Login</button>
+   </form>
+
+   <script>
+      const loginForm = document.querySelector("#login-form");
+      loginForm.addEventListener("submit", (event) => {
+         event.preventDefault(); 
+
+         const usernameInput = document.querySelector("input[name='username']").value;
+         const passwordInput = document.querySelector("input[name='password']").value;
+
+         fetch("http://localhost:3000/users")
+         .then((response) => response.json())
+         .then((data) => {
+            const check = data.find(user => user.username === usernameInput && user.password === passwordInput);
+            if(check) {
+               window.location.href = "index.html";
+            } else if(usernameInput === "" || passwordInput === "") {
+               alert("Hãy nhập đầy đủ");
+            } else {
+               alert("Tên đăng nhập hoặc mật khẩu không đúng");
+            }
+         })
+         .catch((error) => console.error("Đã xảy ra lỗi", error));
+      });
+   </script>
+</body>
+</html>

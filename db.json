@@ -1,0 +1,23 @@
+{
+  "products": [
+    {
+      "name": "sdasd",
+      "desc": "hahaha",
+      "image": "https://picsum.photos/200/200",
+      "id": "e6b2"
+    },
+    {
+      "id": "3761",
+      "name": "phuc",
+      "desc": "phuc",
+      "image": "https://picsum.photos/200/200"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "user",
+      "password": "123456"
+    }
+  ]
+}
